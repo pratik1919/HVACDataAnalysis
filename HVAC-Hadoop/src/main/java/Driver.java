@@ -10,10 +10,7 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 import java.io.IOException;
 
-/**
- * Created by who-are-you on 6/2/16.
- */
-public class DataAnalysisDriver {
+public class Driver {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 
         String inputFile = "input/firstResult.csv";
@@ -32,10 +29,10 @@ public class DataAnalysisDriver {
         analysisJob.setOutputKeyClass(IntWritable.class);
         analysisJob.setOutputValueClass(Text.class);
 
-        analysisJob.setMapperClass(AnalysisMapper.class);
-        analysisJob.setReducerClass(AnalysisReducer.class);
+        analysisJob.setMapperClass(Mapper.class);
+        analysisJob.setReducerClass(Reducer.class);
 
-        analysisJob.setJarByClass(DataAnalysisDriver.class);
+        analysisJob.setJarByClass(Driver.class);
         analysisJob.setJobName("First Written Job");
 
         analysisJob.waitForCompletion(true);

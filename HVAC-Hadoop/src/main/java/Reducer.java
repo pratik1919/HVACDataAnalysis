@@ -10,10 +10,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by who-are-you on 6/2/16.
- */
-public class AnalysisReducer extends Reducer<IntWritable,Text,NullWritable,Text>{
+public class Reducer extends Reducer<IntWritable,Text,NullWritable,Text>{
 
     private Splitter splitter;
     private Joiner joiner;
